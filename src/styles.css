@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+}
+
+body.glightbox-open {
+  padding-right: 0; /* quita compensación que GLightbox añade */
+}

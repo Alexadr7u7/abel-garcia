@@ -1,0 +1,110 @@
+<header class="w-full bg-white/90 mt-2 rounded-2xl shadow-lg">
+  <div class="max-w-7xl mx-auto px-7">
+    <nav
+      class="flex items-center justify-between py-4 mx-auto max-w-6xl h-full"
+    >
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-2xl text-[#249ed2]">AbelGarcia</span>
+      </div>
+
+      <div
+        class="hidden md:flex flex-grow justify-center items-center space-x-8 text-lg font-medium"
+      >
+        <a
+          (click)="scrollToSection('about')"
+          class="cursor-pointer hover:text-[#26B9DB] hover:font-bold"
+          >Inicio</a
+        >
+        <a
+          (click)="scrollToSection('service')"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          >Manuales y cursos</a
+        >
+        <a href="#projects" class="cursor-pointer hover:text-[#26B9DB]"
+          >Sobre mí</a
+        >
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a
+          (click)="scrollToSection('contact')"
+          class="hidden md:block cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full px-8"
+        >
+          Contacto
+        </a>
+
+        <button
+          class="md:hidden w-8 h-8 flex items-center justify-center"
+          (click)="isMenuOpen = !isMenuOpen"
+          aria-label="Toggle Menu"
+        >
+          <svg
+            *ngIf="!isMenuOpen"
+            class="w-6 h-6"
+            fill="none"
+            stroke="black"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <svg
+            *ngIf="isMenuOpen"
+            class="w-6 h-6"
+            fill="none"
+            stroke="black"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div
+      *ngIf="isMenuOpen"
+      class="md:hidden absolute top-full right-6 w-[252px] bg-[#191921] z-50 h-[292px]"
+    >
+      <nav
+        class="flex flex-col space-y-6 text-lg text-center px-6 py-6 text-white"
+      >
+        <a
+          (click)="scrollToSection('about')"
+          (click)="isMenuOpen = false"
+          class="hover:font-bold"
+          >About</a
+        >
+        <a
+          (click)="scrollToSection('service')"
+          (click)="isMenuOpen = false"
+          class="hover:font-bold"
+          >Service</a
+        >
+        <a
+          (click)="scrollToSection('projects')"
+          (click)="isMenuOpen = false"
+          class="hover:font-bold"
+          >Projects</a
+        >
+
+        <a
+          (click)="scrollToSection('contact')"
+          class="text-white font-semibold px-10 py-5 transition bg-[#f94f4f] hover:bg-[#FF9393]"
+        >
+          Schedule a Call
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
