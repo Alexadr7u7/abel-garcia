@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-books',
-  imports: [CommonModule, carousel],
+  imports: [CommonModule],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })
