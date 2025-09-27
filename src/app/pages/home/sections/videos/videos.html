@@ -1,5 +1,12 @@
 <div class="container mx-auto">
-  <h2 class="text-2xl font-bold mb-6 text-black">Cortometrajes</h2>
+  <div class="flex justify-center">
+    <h2
+      class="inline-block text-3xl md:text-4xl font-bold mb-10 text-center text-black"
+    >
+      Conoce mis
+      <span class="text-white bg-[#15274D] p-2 rounded-lg">Cortometrajes</span>
+    </h2>
+  </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     <div *ngFor="let corto of cortometrajes" class="flex flex-col">
@@ -11,32 +18,38 @@
         data-width="1280"
         data-height="720"
       >
-        <!-- Miniatura -->
+        <!-- Miniatura con filtro negro -->
         <img
-          class="w-full aspect-video object-cover"
+          class="w-full aspect-video object-cover transform scale-90 rounded-lg brightness-50 group-hover:brightness-40 transition"
           [src]="corto.thumbnail"
           alt="{{ corto.titulo }}"
         />
 
-        <!-- Botón de reproducción -->
-        <div
-          class="absolute bottom-3 right-3 w-15 h-15 bg-[#15274D] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-9 h-9 text-white"
-            fill="currentColor"
-            viewBox="0 0 24 24"
+        <!-- Botón de reproducción centrado -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div
+            class="w-16 h-16 bg-[#26B8DA] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition"
           >
-            <path d="M8 5v14l11-7z" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-8 h-8 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
         </div>
       </a>
 
-      <!-- Título -->
-      <h3 class="mt-2 font-medium text-sm leading-snug text-black">
-        {{ corto.titulo }}
-      </h3>
+      <div class="mt-2 w-full px-5">
+        <h3 class="text-xl font-bold leading-snug text-black">
+          {{ corto.titulo }}
+        </h3>
+        <p class="text-lg text-gray-500 mt-1">
+          {{ corto.subtitulo }}
+        </p>
+      </div>
     </div>
   </div>
 </div>

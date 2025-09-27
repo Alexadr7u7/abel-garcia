@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Carousel } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-books',
-  imports: [CommonModule],
+  imports: [CommonModule, Carousel, ButtonModule],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })
 export class Books {
+  @ViewChild(Carousel) carousel!: Carousel;
+  constructor() {
+    Carousel.prototype.onTouchMove = () => {};
+  }
   books = [
     {
       titulo: 'Entrenamiento',
@@ -70,4 +76,28 @@ export class Books {
       alt: 'Libro 3',
     },
   ];
+  responsiveOptions = [
+    {
+      breakpoint: '1199px',
+      numVisible: 4,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '991px',
+      numVisible: 4,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 2.5,
+      numScroll: 1,
+    },
+  ];
+  prev() {
+    this.carousel.navBackward(new MouseEvent('click'));
+  }
+
+  next() {
+    this.carousel.navForward(new MouseEvent('click'));
+  }
 }
