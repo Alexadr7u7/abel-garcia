@@ -1,12 +1,5 @@
 <div class="custom-carousel relative">
-  <div class="flex items-center justify-between mb-4">
-    <!-- Título alineado a la izquierda -->
-    <h2
-      class="text-3xl md:text-4xl font-bold text-white bg-[#15274D] p-2 rounded-lg"
-    >
-      Manuales y cursos
-    </h2>
-
+  <div class="flex items-center justify-end mb-4">
     <!-- Botones del carrusel -->
     <div class="flex items-center space-x-4">
       <button
@@ -48,7 +41,6 @@
       </button>
     </div>
   </div>
-
   <p-carousel
     [value]="books"
     [numVisible]="4.5"
@@ -59,100 +51,29 @@
     [showNavigators]="false"
   >
     <ng-template let-book pTemplate="item">
-      <div class="p-3 flex flex-col shrink-0 m-2 cursor-pointer">
-        <!-- Imagen -->
-        <img
-          [src]="book.imagen"
-          [alt]="book.alt"
-          class="w-full mb-4 transform transition duration-300 hover:scale-105 hover:-translate-y-4"
-        />
+      <div
+        class="p-3 flex flex-col shrink-0 m-2 cursor-pointer"
+        [routerLink]="['/book', book.titulo]"
+      >
+        <!-- Imagen con tamaño uniforme -->
+        <div class="w-full h-85 overflow-hidden rounded-lg">
+          <img
+            [src]="book.imagen"
+            [alt]="book.alt"
+            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:-translate-y-2"
+          />
+        </div>
 
         <!-- Título -->
-        <div class="font-semibold text-sm text-gray-800">
+        <div class="font-semibold text-lg text-gray-800 mt-3">
           {{ book.titulo }}
         </div>
 
         <!-- Autor -->
-        <div class="text-xs text-gray-500">
+        <div class="text-gray-500">
           {{ book.autor }}
         </div>
       </div>
     </ng-template>
   </p-carousel>
-</div>
-
-<div
-  class="relative h-[700px] flex flex-col items-center overflow-hidden rounded-2xl my-10"
->
-  <!-- Fondo fijo -->
-  <div
-    class="absolute inset-0 bg-center bg-cover"
-    style="
-      background-image: url('/assets/img/bg-mundi.png');
-      background-attachment: fixed;
-    "
-  ></div>
-
-  <!-- Filtro negro -->
-  <div class="absolute inset-0 bg-[#15274D] opacity-90"></div>
-
-  <!-- Contenido central -->
-  <div class="relative text-center z-10 px-6 my-20 max-w-3xl">
-    <h2 class="text-xl md:text-2xl font-semibold text-blue-200 mb-4">
-      Conectando conocimiento y aprendizaje
-    </h2>
-    <p class="text-3xl font-extrabold text-white mb-6">
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua."
-    </p>
-    <div class="mt-10">
-      <a
-        href="#"
-        class="px-6 py-3 bg-white text-[#15274D] font-semibold rounded-full shadow-lg hover:bg-blue-100 transition"
-      >
-        Conoce más
-      </a>
-    </div>
-  </div>
-
-  <!-- Imagen abajo centrada -->
-  <div class="relative w-full flex items-end justify-center">
-    <img
-      src="/assets/img/abel-lll.png"
-      alt="Logo"
-      class="w-60 md:w-80 relative z-10"
-    />
-
-    <!-- Textos flotantes con íconos -->
-    <div
-      class="absolute bottom-40 left-40 bg-white bg-opacity-80 text-[#15274D] px-4 py-2 rounded-lg flex items-center space-x-2 shadow-lg"
-    >
-      <span class="text-2xl">🌍</span>
-      <span>2k+ Professionals love our spaces</span>
-    </div>
-    <div
-      class="absolute bottom-70 left-70 bg-white bg-opacity-80 text-[#15274D] px-4 py-2 rounded-lg flex items-center space-x-2 shadow-lg"
-    >
-      <span class="text-2xl">🌍</span>
-      <span>2k+ Professionals love</span>
-    </div>
-    <div
-      class="absolute bottom-60 right-40 bg-white bg-opacity-80 text-[#15274D] px-4 py-2 rounded-lg flex items-center space-x-2 shadow-lg"
-    >
-      <span class="text-2xl">✈️</span>
-      <span>Join our community</span>
-    </div>
-    <div
-      class="absolute bottom-20 right-60 bg-white bg-opacity-80 text-[#15274D] px-4 py-2 rounded-lg flex items-center space-x-2 shadow-lg"
-    >
-      <span class="text-2xl">✈️</span>
-      <span>Join our community</span>
-    </div>
-    <div
-      class="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 text-[#15274D] px-4 py-2 rounded-lg flex items-center space-x-2 shadow-lg"
-    >
-      <span class="text-2xl">📚</span>
-      <span>Learning resources</span>
-    </div>
-  </div>
 </div>

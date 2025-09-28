@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { Carousel } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-books',
-  imports: [CommonModule, Carousel, ButtonModule],
+  imports: [CommonModule, Carousel, ButtonModule, RouterLink],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })
@@ -21,27 +22,27 @@ export class Books {
       alt: 'Libro 4',
     },
     {
-      titulo: 'Admirados',
+      titulo: 'Admirados por sus enseñanzas',
       autor: 'Abel Garcia',
       imagen: '/assets/img/admirados.png',
       alt: 'Libro 5',
     },
     {
-      titulo: 'Generación',
+      titulo: 'Generación M',
       autor: 'Abel Garcia',
       imagen: '/assets/img/generacion.png',
       alt: 'Libro 6',
     },
     {
-      titulo: 'Da-vid',
+      titulo: 'da -VID',
       autor: 'Abel Garcia',
       imagen: '/assets/img/da-vid.png',
       alt: 'Libro 7',
     },
     {
-      titulo: 'Edificación',
+      titulo: 'Los Dones para edificación',
       autor: 'Abel Garcia',
-      imagen: '/assets/img/edificacion.png',
+      imagen: '/assets/img/edificacion.jpg',
       alt: 'Libro 8',
     },
     {
@@ -64,7 +65,7 @@ export class Books {
       alt: 'Libro 1',
     },
     {
-      titulo: 'Link Time',
+      titulo: 'La Gran Comisión',
       autor: 'Abel Garcia',
       imagen: '/assets/img/link-time.png',
       alt: 'Libro 2',
