@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import GLightbox from 'glightbox';
+import { Books } from '../home/sections/books/books';
 
 @Component({
   selector: 'app-book-detail',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, Books],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })
@@ -15,6 +16,7 @@ export class BookDetail implements AfterViewInit {
     const titulo = this.route.snapshot.paramMap.get('titulo');
     this.book = this.books.find((b) => b.titulo === titulo);
   }
+
   books = [
     {
       titulo: 'Entrenamiento',

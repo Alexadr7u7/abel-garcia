@@ -20,8 +20,6 @@
         />
       </svg>
     </div>
-
-    Regresar
   </button>
 </div>
 <!-- book-detail.html -->
@@ -45,7 +43,7 @@
       </div>
 
       <!-- Right side - Book title and info -->
-      <div class="flex-1 space-y-4">
+      <div class="flex-1 space-y-4 px-2">
         <div>
           <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
             {{ book.titulo }}
@@ -63,7 +61,9 @@
         </div>
 
         <!-- Action buttons -->
-        <div class="flex items-center space-x-3">
+        <div
+          class="flex items-center justify-center md:justify-start space-x-3"
+        >
           <a
             href=""
             class="bg-[#15274D] hover:bg-[#26B9DB] text-white font-semibold px-8 py-3 rounded-full shadow-lg transition"
@@ -160,6 +160,6 @@
   </div>
 </div>
 
-<!-- <section class="my-10">
+<section class="my-10">
   <app-books></app-books>
-</section> -->
+</section>

@@ -5,10 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Commissioner", sans-serif;
-}
-
 body.glightbox-open {
   padding-right: 0; /* quita compensación que GLightbox añade */
 }

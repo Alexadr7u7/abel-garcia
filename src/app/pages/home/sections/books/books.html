@@ -1,6 +1,6 @@
 <div class="custom-carousel relative">
-  <div class="flex items-center justify-end mb-4">
-    <!-- Botones del carrusel -->
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-3xl md:text-4xl text-black font-bold">Manuales y cursos</h2>
     <div class="flex items-center space-x-4">
       <button
         (click)="prev()"
@@ -51,8 +51,8 @@
     [showNavigators]="false"
   >
     <ng-template let-book pTemplate="item">
-      <div
-        class="p-3 flex flex-col shrink-0 m-2 cursor-pointer"
+      <a
+        class="flex flex-col shrink-0 m-2 cursor-pointer"
         [routerLink]="['/book', book.titulo]"
       >
         <!-- Imagen con tamaño uniforme -->
@@ -73,7 +73,7 @@
         <div class="text-gray-500">
           {{ book.autor }}
         </div>
-      </div>
+      </a>
     </ng-template>
   </p-carousel>
 </div>

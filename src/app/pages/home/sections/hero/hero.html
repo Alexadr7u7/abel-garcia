@@ -1,35 +1,56 @@
 <!-- Hero -->
 <div
   id="inicio"
-  class="relative w-full min-h-[90vh] flex flex-col justify-center text-center overflow-hidden bg-black rounded-2xl"
+  class="relative w-full min-h-[80vh] flex flex-col justify-center text-center overflow-hidden rounded-2xl"
 >
-  <!-- Fondo -->
-  <div
-    class="absolute inset-0 bg-[url('/assets/img/hero.jpg')] bg-cover bg-center"
-  ></div>
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-black/90 to-black/90"
-  ></div>
-
   <!-- Contenido principal -->
-  <div
-    class="relative z-10 text-white max-w-4xl mx-auto py-50 px-6"
-    data-aos="zoom-in"
-  >
+  <div class="text-black max-w-2xl mx-auto px-2 md:px-6" data-aos="zoom-in">
+    <span class="font-bold text-2xl text-[#249ed2]">AbelGarcia</span>
     <h1
-      class="text-3xl md:text-5xl lg:text-[70px] font-extrabold leading-tight mb-4"
+      class="text-3xl md:text-4xl lg:text-6xl font-extrabold leading-tight mb-4"
     >
-      Abel Garcia
+      Hola, mi nombre es Abel Garcia
     </h1>
-    <p class="text-lg md:text-xl text-gray-200 mb-6">
-      Porque no me avergüenzo del evangelio, porque es poder de Dios para
-      salvación a todo aquel que cree; al judío primeramente, y también al
-      griego. <span class="font-extrabold">Romanos 1:16</span>
-    </p>
 
+    <!-- Card con texto -->
+    <div class="bg-white/90 border border-gray-200 shadow-lg p-6 mb-8">
+      <p class="text-center text-lg text-gray-600">
+        Porque no me avergüenzo del evangelio, porque es poder de Dios para
+        salvación a todo aquel que cree; al judío primeramente, y también al
+        griego.
+        <span class="font-bold">Romanos 1:16</span>
+      </p>
+    </div>
+    <!-- Redes sociales como texto -->
     <div
-      class="flex flex-col md:flex-row items-center justify-center gap-4 pt-10"
+      class="mt-5 flex justify-center gap-6 text-[#15274D] font-semibold text-lg"
     >
+      <a
+        href="https://www.facebook.com"
+        target="_blank"
+        class="hover:text-[#26B9DB]"
+        >Facebook</a
+      >
+      <a
+        href="https://www.twitter.com"
+        target="_blank"
+        class="hover:text-[#26B9DB]"
+        >Twitter</a
+      >
+      <a
+        href="https://www.instagram.com"
+        target="_blank"
+        class="hover:text-[#26B9DB]"
+        >Instagram</a
+      >
+      <a
+        href="https://www.linkedin.com"
+        target="_blank"
+        class="hover:text-[#26B9DB]"
+        >LinkedIn</a
+      >
+    </div>
+    <div class="flex flex-row items-center justify-center gap-4 pt-5">
       <a
         href="#planes"
         class="bg-[#15274D] hover:bg-[#26B9DB] text-white font-semibold px-8 py-3 rounded-full shadow-lg transition"
@@ -38,22 +59,10 @@
       </a>
       <a
         href="#contactos"
-        class="border border-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition"
+        class="border-[#15274D] hover:bg-[#26B9DB] hover:text-white px-8 py-3 rounded-full font-semibold transition"
       >
         Contáctame
       </a>
-    </div>
-  </div>
-
-  <div class="relative z-10 w-full hidden md:block">
-    <div class="flex space-x-4 animate-marquee">
-      <div *ngFor="let libro of libros" class="w-[220px] rounded-t-lg">
-        <img
-          [src]="libro.src"
-          [alt]="libro.alt"
-          class="cursor-pointer rounded-t-lg w-full h-[300px] object-cover transform transition duration-300 hover:scale-105 hover:-translate-y-4"
-        />
-      </div>
     </div>
   </div>
 </div>
