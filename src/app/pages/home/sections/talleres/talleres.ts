@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { Carousel } from 'primeng/carousel';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-talleres',
-  imports: [Carousel, ButtonModule],
+  imports: [Carousel, ButtonModule, RouterLink],
   templateUrl: './talleres.html',
   styleUrl: './talleres.css',
 })
