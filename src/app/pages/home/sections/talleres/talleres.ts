@@ -58,26 +58,6 @@ export class Talleres {
       title: 'Aliqua enim.',
       image: '/assets/img/talleres/image-9.png',
     },
-    {
-      title: 'Minim veniam.',
-      image: '/assets/img/talleres/image-10.png',
-    },
-    {
-      title: 'Quis nostrud.',
-      image: '/assets/img/talleres/image-11.png',
-    },
-    {
-      title: 'Exercitation.',
-      image: '/assets/img/talleres/image-12.png',
-    },
-    {
-      title: 'Ullamco laboris.',
-      image: '/assets/img/talleres/image-13.png',
-    },
-    {
-      title: 'Nisi ut.',
-      image: '/assets/img/talleres/image-14.png',
-    },
   ];
   responsiveOptions = [
     {
