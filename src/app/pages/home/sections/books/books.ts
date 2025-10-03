@@ -85,12 +85,12 @@ export class Books {
     },
     {
       breakpoint: '991px',
-      numVisible: 4,
+      numVisible: 3.5,
       numScroll: 1,
     },
     {
       breakpoint: '767px',
-      numVisible: 2.5,
+      numVisible: 1.5,
       numScroll: 1,
     },
   ];

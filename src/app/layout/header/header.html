@@ -1,4 +1,6 @@
-<header class="w-full bg-white/90 mt-2 rounded-2xl shadow-lg">
+<header
+  class="w-full bg-white/90 rounded-2xl shadow-lg max-w-7xl mr-auto ml-auto pl-2 pr-2 md:pl-6 md:pr-6 sticky top-0 z-20 mt-4"
+>
   <div class="max-w-7xl mx-auto px-7">
     <nav
       class="flex items-center justify-between py-4 mx-auto max-w-6xl h-full"
@@ -12,16 +14,18 @@
         class="hidden md:flex flex-grow justify-center items-center space-x-8 text-lg font-medium text-black"
       >
         <a
-          (click)="scrollToSection('about')"
+          [routerLink]="['/']"
           class="cursor-pointer hover:text-[#26B9DB] hover:font-bold"
           >Inicio</a
         >
         <a
           (click)="scrollToSection('service')"
           class="cursor-pointer hover:text-[#26B9DB]"
-          >Manuales y cursos</a
+          >Manuales y Cursos</a
         >
-        <a href="#projects" class="cursor-pointer hover:text-[#26B9DB]"
+        <a
+          [routerLink]="['/about-me']"
+          class="cursor-pointer hover:text-[#26B9DB]"
           >Sobre mí</a
         >
       </div>
@@ -74,35 +78,31 @@
 
     <div
       *ngIf="isMenuOpen"
-      class="md:hidden absolute top-full right-6 w-[252px] bg-[#191921] z-50 h-[292px]"
+      class="md:hidden absolute top-full right-6 w-[252px] bg-white/90 z-50 h-[292px]"
     >
       <nav
-        class="flex flex-col space-y-6 text-lg text-center px-6 py-6 text-white"
+        class="flex flex-col space-y-6 text-lg text-center px-6 py-6 text-black"
       >
         <a
-          (click)="scrollToSection('about')"
-          (click)="isMenuOpen = false"
-          class="hover:font-bold"
-          >About</a
+          [routerLink]="['/']"
+          class="cursor-pointer hover:text-[#26B9DB] hover:font-bold"
+          >Inicio</a
         >
         <a
           (click)="scrollToSection('service')"
-          (click)="isMenuOpen = false"
-          class="hover:font-bold"
-          >Service</a
+          class="cursor-pointer hover:text-[#26B9DB]"
+          >Manuales y Cursos</a
         >
         <a
-          (click)="scrollToSection('projects')"
-          (click)="isMenuOpen = false"
-          class="hover:font-bold"
-          >Projects</a
+          [routerLink]="['/about-me']"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          >Sobre mí</a
         >
-
         <a
           (click)="scrollToSection('contact')"
-          class="text-white font-semibold px-10 py-5 transition bg-[#f94f4f] hover:bg-[#FF9393]"
+          class="cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full px-8"
         >
-          Schedule a Call
+          Contacto
         </a>
       </nav>
     </div>

@@ -13,14 +13,14 @@
       <!-- Video con GLightbox -->
       <a
         [href]="corto.url"
-        class="glightbox relative block rounded-xl overflow-hidden group"
+        class="glightbox relative block rounded overflow-hidden group"
         data-type="video"
         data-width="1280"
         data-height="720"
       >
         <!-- Miniatura con filtro negro -->
         <img
-          class="w-full aspect-video object-cover transform scale-90 rounded-lg brightness-50 group-hover:brightness-40 transition"
+          class="w-full aspect-video object-cover transform scale-90 rounded brightness-50 group-hover:brightness-40 transition"
           [src]="corto.thumbnail"
           alt="{{ corto.titulo }}"
         />
@@ -46,7 +46,7 @@
         <h3 class="text-xl font-bold leading-snug text-black">
           {{ corto.titulo }}
         </h3>
-        <p class="text-lg text-gray-500 mt-1">
+        <p class="text-lg text-gray-600 mt-1">
           {{ corto.subtitulo }}
         </p>
       </div>

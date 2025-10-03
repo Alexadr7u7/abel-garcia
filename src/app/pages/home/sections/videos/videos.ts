@@ -24,7 +24,7 @@ export class Videos implements AfterViewInit {
       thumbnail: 'https://img.youtube.com/vi/dzJFK3NF9to/hqdefault.jpg',
     },
     {
-      titulo: 'La Batota',
+      titulo: 'La Batuta',
       subtitulo: '"Un Toque Especial"',
       url: 'https://youtu.be/iY9Pgv_aXRQ?si=poDRTzm50YliepR3&vq=hd1080',
       thumbnail: 'https://img.youtube.com/vi/iY9Pgv_aXRQ/hqdefault.jpg',
