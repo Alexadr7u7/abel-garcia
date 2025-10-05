@@ -21,7 +21,7 @@ export class BookDetail implements AfterViewInit {
     {
       titulo: 'Entrenamiento',
       autor: 'Abel Garcia',
-      imagen: '/assets/img/entrenamiento.png',
+      imagen: '/assets/img/entrenamiento.jpg',
       description:
         'La Palabra nos enseña a ser diligentes. Esto se aprende cuando conocemos los principios que Dios nos ha brindado en Su Palabra, para abrazar sabiduría, inteligencia y lograr ser creativos, estratégicos y asertivos. Así podemos caminar la segunda milla con quienes necesitan ser escuchados, trayendo libertad a los oprimidos y ayudando a quienes aún no han encontrado la libertad que da Cristo.',
       alt: 'Libro 4',

@@ -16,28 +16,16 @@ export class Books {
   }
   books = [
     {
-      titulo: 'Entrenamiento',
+      titulo: 'Liderazgo y Servicio',
       autor: 'Abel Garcia',
-      imagen: '/assets/img/entrenamiento.png',
-      alt: 'Libro 4',
+      imagen: '/assets/img/liderazgo-servicio.png',
+      alt: 'Libro',
     },
     {
-      titulo: 'Admirados por sus enseñanzas',
+      titulo: 'Evangelismo y Misiones',
       autor: 'Abel Garcia',
-      imagen: '/assets/img/admirados.png',
-      alt: 'Libro 5',
-    },
-    {
-      titulo: 'Generación M',
-      autor: 'Abel Garcia',
-      imagen: '/assets/img/generacion.png',
-      alt: 'Libro 6',
-    },
-    {
-      titulo: 'da -VID',
-      autor: 'Abel Garcia',
-      imagen: '/assets/img/da-vid.png',
-      alt: 'Libro 7',
+      imagen: '/assets/img/evangelismo-misiones.png',
+      alt: 'Libro 3',
     },
     {
       titulo: 'Los Dones para edificación',
@@ -45,19 +33,7 @@ export class Books {
       imagen: '/assets/img/edificacion.jpg',
       alt: 'Libro 8',
     },
-    {
-      titulo: 'Fruto Agradable',
-      autor: 'Abel Garcia',
-      imagen: '/assets/img/fruto-agradable.png',
-      alt: 'Libro 9',
-    },
 
-    {
-      titulo: 'Liderazgo y Servicio',
-      autor: 'Abel Garcia',
-      imagen: '/assets/img/liderazgo-servicio.png',
-      alt: 'Libro',
-    },
     {
       titulo: 'Alcance y Seguimiento',
       autor: 'Abel Garcia',
@@ -65,16 +41,42 @@ export class Books {
       alt: 'Libro 1',
     },
     {
+      titulo: 'da -VID',
+      autor: 'Abel Garcia',
+      imagen: '/assets/img/da-vid.png',
+      alt: 'Libro 7',
+    },
+
+    {
       titulo: 'La Gran Comisión',
       autor: 'Abel Garcia',
       imagen: '/assets/img/link-time.png',
       alt: 'Libro 2',
     },
     {
-      titulo: 'Evangelismo y Misiones',
+      titulo: 'Generación M',
       autor: 'Abel Garcia',
-      imagen: '/assets/img/evangelismo-misiones.png',
-      alt: 'Libro 3',
+      imagen: '/assets/img/generacion.png',
+      alt: 'Libro 6',
+    },
+
+    {
+      titulo: 'Admirados por sus enseñanzas',
+      autor: 'Abel Garcia',
+      imagen: '/assets/img/admirados.png',
+      alt: 'Libro 5',
+    },
+    {
+      titulo: 'Entrenamiento',
+      autor: 'Abel Garcia',
+      imagen: '/assets/img/entrenamiento.jpg',
+      alt: 'Libro 4',
+    },
+    {
+      titulo: 'Fruto Agradable',
+      autor: 'Abel Garcia',
+      imagen: '/assets/img/fruto-agradable.png',
+      alt: 'Libro 9',
     },
   ];
   responsiveOptions = [
