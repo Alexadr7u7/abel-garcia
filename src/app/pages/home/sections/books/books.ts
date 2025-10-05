@@ -90,7 +90,7 @@ export class Books {
     },
     {
       breakpoint: '767px',
-      numVisible: 1.5,
+      numVisible: 2.5,
       numScroll: 1,
     },
   ];

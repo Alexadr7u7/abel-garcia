@@ -1,6 +1,12 @@
 <div class="custom-carousel relative">
+  <h2 class="text-3xl md:text-4xl text-black font-bold">
+    Enseñanza en línea y presencial
+  </h2>
   <div class="flex items-center justify-between mb-4">
-    <h2 class="text-3xl md:text-4xl text-black font-bold">Manuales y Cursos</h2>
+    <h2 class="text-xl md:text-2xl text-[#249ed2] font-bold">
+      Cursos y Manuales
+    </h2>
+
     <div class="flex items-center space-x-4">
       <button
         (click)="prev()"
@@ -56,7 +62,7 @@
         [routerLink]="['/book', book.titulo]"
       >
         <!-- Imagen con tamaño uniforme -->
-        <div class="w-full h-100 md:h-80 lg:h-90 overflow-hidden rounded">
+        <div class="w-full h-55 md:h-80 lg:h-90 overflow-hidden rounded">
           <img
             [src]="book.imagen"
             [alt]="book.alt"
