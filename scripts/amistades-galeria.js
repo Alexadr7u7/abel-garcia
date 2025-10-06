@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Carpeta donde están tus imágenes
-const folder = path.join(__dirname, "../public/assets/img/amistades");
+const folder = path.join(__dirname, "../public/assets/img/organizaciones");
 
 // Leemos todos los archivos de la carpeta
 const files = fs.readdirSync(folder);
@@ -14,11 +14,11 @@ const imagenes = files.filter((file) =>
 );
 
 // Generamos el JSON con rutas relativas a "assets/"
-const output = imagenes.map((file) => `assets/img/amistades/${file}`);
+const output = imagenes.map((file) => `assets/img/organizaciones/${file}`);
 
 // Guardamos en un archivo JSON en assets
 fs.writeFileSync(
-  path.join(__dirname, "../public/assets/amistades.json"),
+  path.join(__dirname, "../public/assets/organizaciones.json"),
   JSON.stringify(output, null, 2)
 );
 

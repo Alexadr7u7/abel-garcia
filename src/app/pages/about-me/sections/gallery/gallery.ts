@@ -13,20 +13,10 @@ export class Gallery implements AfterViewInit {
   imagenes: string[] = [];
 
   ngOnInit() {
-    fetch('/assets/amistades.json')
+    fetch('/assets/organizaciones.json')
       .then((res) => res.json())
       .then((data: string[]) => {
         this.imagenes = data;
-
-        // Esperamos un tick para que Angular renderice el *ngFor
-        setTimeout(() => {
-          GLightbox({
-            selector: '.glightbox',
-            touchNavigation: true,
-            loop: true,
-            autoplayVideos: true,
-          });
-        }, 0);
       })
       .catch((err) => console.error('Error cargando imágenes:', err));
   }

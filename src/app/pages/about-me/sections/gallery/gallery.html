@@ -6,19 +6,17 @@
       Relación amistad con Ministerios y Organizaciones
     </h2>
   </div>
-  <!-- Galería de imágenes -->
+  <!-- Logos estilo corporativo -->
   <ul
     role="list"
-    class="grid-gallery columns-2 sm:columns-3 lg:columns-3 gap-2 [column-fill:_balance] [&>li]:mb-2"
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center"
   >
-    <li *ngFor="let img of imagenes" class="flex rounded">
-      <a [href]="img" class="glightbox hover:scale-95 transition-transform">
-        <img
-          [src]="img"
-          class="h-full w-full object-cover rounded"
-          alt="Imagen de galería"
-        />
-      </a>
+    <li *ngFor="let img of imagenes" class="flex justify-center">
+      <img
+        [src]="img"
+        alt="Logo"
+        class="h-30 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0"
+      />
     </li>
   </ul>
 </div>
