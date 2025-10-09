@@ -33,9 +33,9 @@ export class Videos implements AfterViewInit {
 
   ngAfterViewInit(): void {
     GLightbox({
+      selector: '.glightbox',
       touchNavigation: true,
       loop: true,
-      autoplayVideos: true,
     });
   }
 }

@@ -21,7 +21,5 @@ export class Gallery implements AfterViewInit {
       .catch((err) => console.error('Error cargando imágenes:', err));
   }
 
-  ngAfterViewInit(): void {
-    // Aquí no inicializamos nada, porque las imágenes aún no están cargadas
-  }
+  ngAfterViewInit(): void {}
 }

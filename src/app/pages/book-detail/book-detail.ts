@@ -3,10 +3,11 @@ import { AfterViewInit, Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import GLightbox from 'glightbox';
 import { Books } from '../home/sections/books/books';
+import { Contact } from '../contact/contact';
 
 @Component({
   selector: 'app-book-detail',
-  imports: [CommonModule, RouterLink, Books],
+  imports: [CommonModule, RouterLink, Books, Contact],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })

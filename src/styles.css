@@ -17,3 +17,19 @@ body.glightbox-open {
 .p-carousel-indicator-active .p-carousel-indicator-button {
   background-color: #26b8da !important; /* azul */
 }
+
+.iti__country-list::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+.iti__country-list::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 3px;
+}
+
+/* Firefox */
+.iti__country-list {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #f0f0f0;
+}

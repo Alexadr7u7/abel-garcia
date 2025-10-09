@@ -1,172 +1,108 @@
-<section class="max-w-7xl mr-auto ml-auto pl-2 pr-2 md:pl-6 md:pr-6">
-  <div class="container mt-6">
-    <button
-      routerLink="/"
-      class="flex items-center gap-2 text-[#15274D] hover:text-[#26B9DB] font-semibold transition cursor-pointer"
-    >
-      <div class="p-2 rounded-full bg-white">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+<section class="bg-white py-10">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Contenido principal -->
+    <div *ngIf="book" class="flex flex-col lg:flex-row gap-10 items-start">
+      <!-- Portada -->
+      <div class="flex justify-center lg:justify-start w-full lg:w-1/3">
+        <img
+          [src]="book.imagen"
+          [alt]="book.alt"
+          class="rounded shadow-2xl w-80 md:w-full h-150"
+        />
       </div>
-    </button>
-  </div>
-  <!-- book-detail.html -->
-  <div class="container mt-10">
-    <!-- Main white container -->
-    <div *ngIf="book">
-      <!-- Top section with book cover and title -->
-      <div
-        class="flex flex-col lg:flex-row items-center md:items-start gap-8 mb-8 max-w-3xl mx-auto"
-      >
-        <!-- Left side - Book cover with navigation -->
-        <div class="flex items-center gap-4">
-          <!-- Book cover -->
-          <div class="relative">
-            <img
-              [src]="book.imagen"
-              [alt]="book.alt"
-              class="w-74 h-100 object-cover rounded-lg shadow-2xl"
-            />
-          </div>
-        </div>
 
-        <!-- Right side - Book title and info -->
-        <div class="flex-1 space-y-4 px-2">
-          <div class="prose">
-            <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-              {{ book.titulo }}
-            </h1>
-            <p class="text-xl text-gray-700 font-medium mb-4 md:text-xl">
-              {{ book.autor }}
-            </p>
-            <p
-              class="text-gray-600 leading-relaxed italic mb-6 text-lg md:text-xl"
-              *ngIf="book.description"
-            >
-              {{ book.description | slice : 0 : 150
-              }}{{ book.description.length > 150 ? "..." : "" }}
-            </p>
-            <p class="text-xl text-gray-700 font-medium mb-4 md:text-xl">
-              Servicio de enseñanza en línea o presencial.
-            </p>
-          </div>
-
-          <!-- Action buttons -->
-          <div
-            class="flex items-center justify-center md:justify-start space-x-3"
+      <!-- Detalles del libro -->
+      <div class="flex-1 space-y-6">
+        <!-- Título y autor -->
+        <div>
+          <h1
+            class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-2"
           >
+            {{ book.titulo }}
+          </h1>
+          <p class="text-lg text-gray-700 font-medium">{{ book.autor }}</p>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Descripción</h3>
+          <p
+            class="text-gray-700 leading-relaxed text-base md:text-lg"
+            *ngIf="book.description"
+          >
+            {{ book.description }}
+          </p>
+        </div>
+
+        <!-- Video -->
+        <div class="mt-6" *ngIf="book.video && book.thumbnail">
+          <div class="w-80 aspect-video rounded-lg overflow-hidden shadow-md">
             <a
-              href=""
-              class="bg-[#15274D] hover:bg-[#26B9DB] text-white font-semibold px-8 py-3 rounded-full shadow-lg transition"
+              [href]="book.video"
+              class="glightbox relative block group"
+              data-type="video"
+              data-width="1280"
+              data-height="720"
             >
-              <span>Contacta para más información</span>
+              <img
+                [src]="book.thumbnail"
+                alt="{{ book.titulo }}"
+                class="w-full h-full object-cover rounded-lg brightness-75 group-hover:brightness-60 transition"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 bg-[#26B9DB] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
             </a>
-            <button
-              class="w-12 h-12 bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
-            >
-              <i class="fas fa-share text-gray-600 text-xs"></i>
-            </button>
           </div>
         </div>
-      </div>
 
-      <!-- Divider line -->
-      <div class="bg-white px-8">
-        <hr class="border-gray-200 my-8" />
-      </div>
-
-      <!-- Bottom section - Book details -->
-      <div class="bg-white rounded-2xl shadow-sm p-8 -mt-4">
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Left column - Description -->
-          <div class="prose">
-            <h3 class="text-xl font-bold text-gray-900 mb-6">Descripción</h3>
-
-            <p
-              class="text-lg text-gray-700 mb-4 leading-relaxed"
-              *ngIf="book.description"
-            >
-              {{ book.description }}
-            </p>
-          </div>
-
-          <!-- Right column - Book specifications -->
-          <div class="space-y-8">
-            <!-- Author -->
-            <div>
-              <h4 class="font-bold text-gray-900 mb-3 text-xl">Autor</h4>
-              <p class="text-lg text-gray-700 leading-relaxed">
-                {{ book.autor }}
-              </p>
-            </div>
-
-            <!-- Book Title Reference -->
-            <div>
-              <h4 class="font-bold text-gray-900 mb-3 text-xl">
-                Título completo
-              </h4>
-              <p class="text-lg text-gray-700 leading-relaxed">
-                {{ book.titulo }}
-              </p>
-            </div>
-            <!-- Video debajo de la descripción -->
+        <!-- Botones de acción -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a
+            [routerLink]="'/contacto'"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#15274D] px-8 py-3 text-white text-lg font-medium transition hover:bg-[#26B9DB]"
+          >
+            <span>Contacta para más información</span>
             <div
-              class="mt-6 flex justify-start"
-              *ngIf="book.video && book.thumbnail"
+              class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"
             >
-              <div class="w-80 aspect-video rounded-lg overflow-hidden">
-                <a
-                  [href]="book.video"
-                  class="glightbox relative block rounded-xl overflow- group"
-                  data-type="video"
-                  data-width="1280"
-                  data-height="720"
-                >
-                  <img
-                    class="w-full aspect-video object-cover transform rounded-lg brightness-50 group-hover:brightness-40 transition"
-                    [src]="book.thumbnail"
-                    alt="{{ book.titulo }}"
-                  />
-
-                  <div
-                    class="absolute inset-0 flex items-center justify-center"
-                  >
-                    <div
-                      class="w-16 h-16 bg-[#26B8DA] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-8 h-8 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+              >
+                <path
+                  d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
-
-  <section class="my-10">
-    <app-books></app-books>
-  </section>
 </section>
+
+<section class="bg-white">
+  <app-books></app-books>
+</section>
+<app-contact></app-contact>
+
 <!-- Botón de regreso -->
