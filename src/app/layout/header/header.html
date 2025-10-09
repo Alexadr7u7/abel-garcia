@@ -1,21 +1,19 @@
-<header
-  class="w-full bg-white/90 rounded-2xl shadow-lg max-w-7xl mr-auto ml-auto pl-2 pr-2 md:pl-6 md:pr-6 sticky top-0 z-20 mt-4"
->
-  <div class="max-w-7xl mx-auto px-7">
+<header class="w-full bg-white shadow-sm sticky top-0 z-20">
+  <div class="max-w-7xl mx-auto px-7 py-5">
     <nav
-      class="flex items-center justify-between py-4 mx-auto max-w-6xl h-full"
+      class="flex items-center justify-between py-4 mx-auto max-w-7xl h-full"
     >
       <!-- Logo -->
       <div class="flex items-center space-x-2">
-        <span class="font-bold text-2xl text-[#249ed2]">AbelGarcia</span>
+        <a class="font-bold text-2xl text-[#249ed2]" [routerLink]="['/']"
+          >AbelGarcia</a
+        >
       </div>
 
       <div
-        class="hidden md:flex flex-grow justify-center items-center space-x-8 text-lg font-medium text-black"
+        class="hidden md:flex flex-grow justify-center items-center space-x-8 text-base text-black uppercase"
       >
-        <a
-          [routerLink]="['/']"
-          class="cursor-pointer hover:text-[#26B9DB] hover:font-bold"
+        <a [routerLink]="['/']" class="cursor-pointer hover:text-[#26B9DB]"
           >Inicio</a
         >
         <a
@@ -24,20 +22,24 @@
           >Manuales y Cursos</a
         >
         <a
+          [routerLink]="['/conferencias']"
+          class="cursor-pointer hover:text-[#26B9DB]"
+        >
+          Talleres, conferencias y cursos</a
+        >
+        <a
           [routerLink]="['/about-me']"
           class="cursor-pointer hover:text-[#26B9DB]"
-          >Sobre mí</a
+          >¿Quién es Abel Garcia?</a
+        >
+        <a
+          [routerLink]="['/contacto']"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          >Contacto</a
         >
       </div>
 
       <div class="flex items-center space-x-6">
-        <a
-          (click)="scrollToSection('contact')"
-          class="hidden md:block cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full px-8"
-        >
-          Contacto
-        </a>
-
         <button
           class="md:hidden w-8 h-8 flex items-center justify-center"
           (click)="isMenuOpen = !isMenuOpen"

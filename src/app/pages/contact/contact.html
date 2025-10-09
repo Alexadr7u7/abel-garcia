@@ -1,76 +1,77 @@
-<div
-  class="grid md:grid-cols-2 gap-10 items-center max-w-7xl mx-auto px-2 md:px-6 py-20"
->
-  <!-- Columna izquierda: Formulario -->
-  <div>
-    <h2
-      class="inline-block text-3xl md:text-4xl font-bold mb-10 text-left text-black"
-    >
-      Contacto
-    </h2>
+<section class="bg-white">
+  <div
+    class="grid md:grid-cols-2 gap-10 items-center max-w-7xl mx-auto px-4 md:px-6 py-20"
+  >
+    <!-- Columna izquierda: Formulario -->
+    <div>
+      <h2
+        class="inline-block text-3xl md:text-4xl font-medium mb-10 text-left text-black"
+      >
+        Contacto
+      </h2>
 
-    <form class="space-y-6">
-      <!-- Nombre -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <form class="space-y-6">
+        <!-- Nombre -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Nombre</label
+            >
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Apellidos</label
+            >
+            <input
+              type="text"
+              placeholder="Apellidos"
+              class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
+            />
+          </div>
+        </div>
+
+        <!-- Email -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1"
-            >Nombre</label
+            >Correo electronico</label
           >
           <input
-            type="text"
-            placeholder="Nombre"
+            type="email"
+            placeholder="example@gmail.com"
             class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
           />
         </div>
+
+        <!-- Teléfono -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1"
-            >Apellidos</label
+            >Teléfono</label
           >
           <input
-            type="text"
-            placeholder="Apellidos"
+            type="tel"
+            placeholder="+1 (555) 000-0000"
             class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
           />
         </div>
-      </div>
 
-      <!-- Email -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Correo electronico</label
-        >
-        <input
-          type="email"
-          placeholder="example@gmail.com"
-          class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
-        />
-      </div>
+        <!-- Mensaje -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1"
+            >Mensaje</label
+          >
+          <textarea
+            rows="4"
+            placeholder="Tu mensaje..."
+            class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
+          ></textarea>
+        </div>
 
-      <!-- Teléfono -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Teléfono</label
-        >
-        <input
-          type="tel"
-          placeholder="+1 (555) 000-0000"
-          class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
-        />
-      </div>
-
-      <!-- Mensaje -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1"
-          >Mensaje</label
-        >
-        <textarea
-          rows="4"
-          placeholder="Tu mensaje..."
-          class="w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
-        ></textarea>
-      </div>
-
-      <!-- <div class="flex items-center">
+        <!-- <div class="flex items-center">
         <input
           type="checkbox"
           id="privacy"
@@ -82,43 +83,44 @@
         </label>
       </div> -->
 
-      <!-- Botón -->
-      <div class="mt-8 lg:mt-10">
-        <button
-          type="submit"
-          class="w-full cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full group relative inline-flex h-12 items-center justify-center overflow-hidden transition"
-        >
-          <span>Enviar mensaje</span>
-          <div
-            class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"
+        <!-- Botón -->
+        <div class="mt-8 lg:mt-10">
+          <button
+            type="submit"
+            class="w-full cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full group relative inline-flex h-12 items-center justify-center overflow-hidden transition"
           >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+            <span>Enviar mensaje</span>
+            <div
+              class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"
             >
-              <path
-                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </form>
-  </div>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+              >
+                <path
+                  d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
 
-  <!-- Columna derecha: Imagen -->
-  <div class="relative flex justify-center items-center h-full w-full">
-    <img
-      src="/assets/img/abel/image.png"
-      alt="Contact illustration"
-      class="w-full h-full object-cover rounded shadow-lg"
-    />
+    <!-- Columna derecha: Imagen -->
+    <div class="relative flex justify-center items-center h-full w-full">
+      <img
+        src="/assets/img/abel/image.png"
+        alt="Contact illustration"
+        class="w-full h-full object-cover rounded shadow-lg"
+      />
+    </div>
   </div>
-</div>
+</section>

@@ -21,5 +21,3 @@ fs.writeFileSync(
   path.join(__dirname, "../public/assets/organizaciones.json"),
   JSON.stringify(output, null, 2)
 );
-
-console.log(`✅ Generado imagenes.json con ${output.length} imágenes`);

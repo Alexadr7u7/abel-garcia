@@ -1,0 +1,86 @@
+<section
+  class="relative inset-0 bg-center bg-cover bg-fixed"
+  style="background-image: url('/assets/img/hands.jpg')"
+>
+  <!-- Filtro oscuro encima del fondo -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Contenido -->
+  <div
+    class="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 items-center text-white"
+  >
+    <!-- Columna de texto -->
+    <div class="space-y-6 z-10">
+      <h2 class="text-xl md:text-2xl font-semibold text-blue-200">
+        Talleres, conferencias y cursos
+      </h2>
+
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white">
+        Sobre tu realidad, declara la verdad.
+      </h1>
+
+      <p class="text-lg text-gray-200 max-w-md">
+        Descubre videos, conferencias que inspiran transformación y propósito.
+      </p>
+
+      <div class="pt-4">
+        <button
+          [routerLink]="'/conferencias'"
+          class="cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full px-8 group relative inline-flex h-12 items-center justify-center overflow-hidden"
+        >
+          <span>Ve algunas conferencias de Abel Garcia</span>
+          <div
+            class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+            >
+              <path
+                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Columna de video -->
+    <!-- Columna de video -->
+    <div class="relative aspect-video rounded overflow-hidden shadow-2xl z-10">
+      <!-- Enlace que activa GLightbox -->
+      <a
+        href="/assets/videos/video.mp4"
+        class="glightbox"
+        data-type="video"
+        data-source="local"
+      >
+        <!-- Imagen o video de fondo -->
+        <img
+          src="/assets/img/talleres/image-10.jpg"
+          class="w-full h-full object-cover"
+        />
+
+        <!-- Icono de reproducción encima -->
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition"
+        >
+          <svg
+            class="w-20 h-20 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
