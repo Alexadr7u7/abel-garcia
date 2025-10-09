@@ -11,13 +11,14 @@
       </div>
 
       <div
-        class="hidden md:flex flex-grow justify-center items-center space-x-8 text-base text-black uppercase"
+        class="hidden lg:flex flex-grow justify-center items-center space-x-4 lg:space-x-6 text-base text-black uppercase"
       >
         <a [routerLink]="['/']" class="cursor-pointer hover:text-[#26B9DB]"
           >Inicio</a
         >
         <a
-          (click)="scrollToSection('service')"
+          [routerLink]="['/']"
+          fragment="cursos"
           class="cursor-pointer hover:text-[#26B9DB]"
           >Manuales y Cursos</a
         >
@@ -41,7 +42,7 @@
 
       <div class="flex items-center space-x-6">
         <button
-          class="md:hidden w-8 h-8 flex items-center justify-center"
+          class="lg:hidden w-8 h-8 flex items-center justify-center"
           (click)="isMenuOpen = !isMenuOpen"
           aria-label="Toggle Menu"
         >
@@ -80,32 +81,43 @@
 
     <div
       *ngIf="isMenuOpen"
-      class="md:hidden absolute top-full right-6 w-[252px] bg-white/90 z-50 h-[292px]"
+      class="lg:hidden absolute top-full w-full bg-white z-50 h-[292px]"
     >
       <nav
-        class="flex flex-col space-y-6 text-lg text-center px-6 py-6 text-black"
+        class="flex flex-col space-y-6 text-lg px-6 py-6 text-black uppercase"
       >
         <a
           [routerLink]="['/']"
-          class="cursor-pointer hover:text-[#26B9DB] hover:font-bold"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          (click)="closeMenu()"
           >Inicio</a
         >
         <a
-          (click)="scrollToSection('service')"
+          [routerLink]="['/']"
+          fragment="cursos"
           class="cursor-pointer hover:text-[#26B9DB]"
+          (click)="closeMenu()"
           >Manuales y Cursos</a
+        >
+        <a
+          [routerLink]="['/conferencias']"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          (click)="closeMenu()"
+        >
+          Talleres, conferencias y cursos</a
         >
         <a
           [routerLink]="['/about-me']"
           class="cursor-pointer hover:text-[#26B9DB]"
-          >Sobre mí</a
+          (click)="closeMenu()"
+          >¿Quién es Abel Garcia?</a
         >
         <a
-          (click)="scrollToSection('contact')"
-          class="cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full px-8"
+          [routerLink]="['/contacto']"
+          class="cursor-pointer hover:text-[#26B9DB]"
+          (click)="closeMenu()"
+          >Contacto</a
         >
-          Contacto
-        </a>
       </nav>
     </div>
   </div>
