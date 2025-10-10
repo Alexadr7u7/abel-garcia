@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import GLightbox from 'glightbox';
 import { Books } from '../home/sections/books/books';
 import { Contact } from '../contact/contact';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-book-detail',
@@ -11,12 +12,10 @@ import { Contact } from '../contact/contact';
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })
-export class BookDetail implements AfterViewInit {
+export class BookDetail implements AfterViewInit, OnDestroy {
   book: any;
-  constructor(private route: ActivatedRoute) {
-    const titulo = this.route.snapshot.paramMap.get('titulo');
-    this.book = this.books.find((b) => b.titulo === titulo);
-  }
+  private routeSub!: Subscription;
+  constructor(private route: ActivatedRoute) {}
 
   books = [
     {
@@ -110,5 +109,14 @@ export class BookDetail implements AfterViewInit {
       loop: true,
       autoplayVideos: true,
     });
+    // Escuchar cambios en el parámetro de la ruta
+    this.routeSub = this.route.paramMap.subscribe((params) => {
+      const titulo = params.get('titulo');
+      this.book = this.books.find((b) => b.titulo === titulo);
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // opcional, para subir al inicio
+    });
+  }
+  ngOnDestroy(): void {
+    if (this.routeSub) this.routeSub.unsubscribe();
   }
 }
