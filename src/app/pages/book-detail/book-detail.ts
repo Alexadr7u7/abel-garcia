@@ -5,11 +5,9 @@ import GLightbox from 'glightbox';
 import { Books } from '../home/sections/books/books';
 import { Contact } from '../contact/contact';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { Footer } from '../../layout/footer/footer';
-
 @Component({
   selector: 'app-book-detail',
-  imports: [CommonModule, RouterLink, Books, Contact, Footer],
+  imports: [CommonModule, RouterLink, Books, Contact],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })

@@ -103,7 +103,7 @@ export class Contact implements AfterViewInit {
     this.mensajeRespuesta = '';
 
     this.http
-      .post('http://localhost/send-mail/send-mail.php', this.form, {
+      .post('https://abel-garcia.org/send-mail/send-mail.php', this.form, {
         headers: { 'Content-Type': 'application/json' },
       })
       .subscribe({
