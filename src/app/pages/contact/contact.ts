@@ -1,9 +1,16 @@
-import { AfterViewInit, Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgZone,
+  ViewChild,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import intlTelInput from 'intl-tel-input';
 import { CommonModule } from '@angular/common';
 import { Footer } from '../../layout/footer/footer';
+declare var intlTelInputUtils: any;
 
 @Component({
   selector: 'app-contact',
@@ -13,6 +20,8 @@ import { Footer } from '../../layout/footer/footer';
   styleUrls: ['./contact.css'],
 })
 export class Contact implements AfterViewInit {
+  @ViewChild('phoneInput') phoneInput!: ElementRef;
+
   form = {
     nombre: '',
     apellidos: '',
@@ -25,64 +34,78 @@ export class Contact implements AfterViewInit {
   mensajeRespuesta = '';
   iti: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
-    const input = document.querySelector('#phone') as HTMLInputElement;
+    if (!this.phoneInput) return;
 
-    if (!input) {
-      console.error('⚠️ Input #phone no encontrado en el DOM');
-      return;
-    }
-
-    this.iti = intlTelInput(input, {
+    // Inicializar intl-tel-input
+    this.iti = intlTelInput(this.phoneInput.nativeElement, {
       initialCountry: 'mx',
       separateDialCode: true,
-      // 👇 Importante: esta propiedad no está en los tipos, pero funciona en runtime
-      utilsScript:
-        'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
-    } as any);
-
-    // Log del país seleccionado
-    input.addEventListener('countrychange', () => {
-      const country = this.iti.getSelectedCountryData();
-      console.log('🌎 País cambiado:', country.iso2, country.dialCode);
+      //@ts-ignore
+      utilsScript: '/assets/js/utils.js',
     });
+
+    const updateNumber = () => {
+      let number = '';
+      try {
+        // Obtener número completo E.164
+        number = this.iti.getNumber() || '';
+        // Si está vacío, concatenar el dial code con el valor del input
+        if (!number) {
+          const dialCode = this.iti.getSelectedCountryData().dialCode;
+          const inputVal = this.phoneInput.nativeElement.value.trim();
+          if (inputVal) number = `+${dialCode}${inputVal}`;
+        }
+      } catch (err) {
+        console.warn('Error obteniendo número intl-tel-input:', err);
+      }
+      console.log('📱 Número actualizado:', number);
+      this.ngZone.run(() => {
+        this.form.phone = number;
+      });
+    };
+
+    this.phoneInput.nativeElement.addEventListener('input', updateNumber);
+    this.phoneInput.nativeElement.addEventListener(
+      'countrychange',
+      updateNumber
+    );
   }
 
-  async enviarFormulario(): Promise<void> {
-    // Aseguramos que utils.js haya cargado antes de usar getNumber()
-    await this.waitForUtils();
-
-    if (this.iti) {
-      const intlUtils = (window as any).intlTelInputUtils;
-      const phoneNumber = intlUtils
-        ? this.iti.getNumber(intlUtils.numberFormat.E164)
-        : this.iti.getNumber();
-
-      console.log('📞 Número detectado por intl-tel-input:', phoneNumber);
-      this.form.phone = phoneNumber || '';
-    }
-
-    console.log('📱 Número final a enviar:', this.form.phone);
-
-    // Validaciones básicas
+  enviarFormulario(): void {
     if (!this.form.nombre || !this.form.email || !this.form.mensaje) {
       this.mensajeRespuesta = 'Por favor, llena todos los campos requeridos.';
       return;
     }
 
-    if (this.iti && !this.iti.isValidNumber()) {
-      this.mensajeRespuesta = 'Por favor, ingresa un número válido.';
-      return;
+    if (this.iti) {
+      try {
+        // Obtener número completo o concatenar dial code + input
+        let number = this.iti.getNumber();
+        if (!number) {
+          const dialCode = this.iti.getSelectedCountryData().dialCode;
+          const inputVal = this.phoneInput.nativeElement.value.trim();
+          if (inputVal) number = `+${dialCode}${inputVal}`;
+        }
+        this.form.phone = number;
+      } catch (err) {
+        console.warn('Error obteniendo número antes de enviar:', err);
+        this.form.phone = '';
+      }
     }
+
+    console.log('💾 Form data final:', this.form);
+    console.log('💾 Form data a enviar:', JSON.stringify(this.form));
 
     this.cargando = true;
     this.mensajeRespuesta = '';
 
-    // Envío de datos al backend
     this.http
-      .post('http://localhost/send-mail/send-mail.php', this.form)
+      .post('http://localhost/send-mail/send-mail.php', this.form, {
+        headers: { 'Content-Type': 'application/json' },
+      })
       .subscribe({
         next: (res: any) => {
           console.log('📨 Respuesta del servidor PHP:', res);
@@ -98,19 +121,6 @@ export class Contact implements AfterViewInit {
       });
   }
 
-  private waitForUtils(): Promise<void> {
-    return new Promise((resolve) => {
-      const checkUtils = () => {
-        if ((window as any).intlTelInputUtils) {
-          resolve();
-        } else {
-          setTimeout(checkUtils, 100);
-        }
-      };
-      checkUtils();
-    });
-  }
-
   private resetForm(): void {
     this.form = {
       nombre: '',
@@ -119,9 +129,7 @@ export class Contact implements AfterViewInit {
       phone: '',
       mensaje: '',
     };
-
-    const phoneInput = document.querySelector('#phone') as HTMLInputElement;
-    if (phoneInput) phoneInput.value = '';
+    if (this.phoneInput) this.phoneInput.nativeElement.value = '';
     this.cargando = false;
   }
 }
