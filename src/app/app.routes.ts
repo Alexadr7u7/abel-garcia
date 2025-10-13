@@ -6,9 +6,17 @@ import { Contact } from './pages/contact/contact';
 import { Conferencias } from './pages/conferencias/conferencias';
 
 export const routes: Routes = [
-  { path: '', component: Home },
-  { path: 'book/:titulo', component: BookDetail },
-  { path: 'about-me', component: AboutMe },
-  { path: 'conferencias', component: Conferencias },
-  { path: 'contacto', component: Contact },
+  { path: '', component: Home, data: { animation: 'HomePage' } },
+  {
+    path: 'book/:titulo',
+    component: BookDetail,
+    data: { animation: 'BookPage' },
+  },
+  { path: 'about-me', component: AboutMe, data: { animation: 'AboutPage' } },
+  {
+    path: 'conferencias',
+    component: Conferencias,
+    data: { animation: 'ConferenciasPage' },
+  },
+  { path: 'contacto', component: Contact, data: { animation: 'ContactPage' } },
 ];

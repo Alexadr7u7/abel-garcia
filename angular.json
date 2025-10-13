@@ -25,11 +25,13 @@
             "styles": [
               "node_modules/glightbox/dist/css/glightbox.min.css",
               "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "node_modules/aos/dist/aos.css",
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/glightbox/dist/js/glightbox.min.js",
-              "node_modules/intl-tel-input/build/js/intlTelInput.min.js"
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js",
+              "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {

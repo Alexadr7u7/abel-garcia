@@ -6,11 +6,17 @@
     <div>
       <h2
         class="inline-block text-3xl md:text-4xl font-medium mb-10 text-left text-black"
+        data-aos="fade-right"
       >
         Contacto
       </h2>
 
-      <form class="space-y-6">
+      <form
+        #contactForm="ngForm"
+        class="space-y-6"
+        data-aos="fade-right"
+        (ngSubmit)="enviarFormulario()"
+      >
         <!-- Nombre -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -18,7 +24,10 @@
               >Nombre</label
             >
             <input
+              [(ngModel)]="form.nombre"
+              name="nombre"
               type="text"
+              required
               placeholder="Nombre"
               class="text-black w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
             />
@@ -29,7 +38,10 @@
             >
             <input
               type="text"
+              [(ngModel)]="form.apellidos"
+              name="apellidos"
               placeholder="Apellidos"
+              required
               class="text-black w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
             />
           </div>
@@ -43,6 +55,9 @@
           <input
             type="email"
             placeholder="example@gmail.com"
+            [(ngModel)]="form.email"
+            name="email"
+            required
             class="text-black w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
           />
         </div>
@@ -56,6 +71,7 @@
             id="phone"
             type="tel"
             placeholder="Teléfono"
+            required
             class="text-black w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
           />
         </div>
@@ -66,53 +82,25 @@
             >Mensaje</label
           >
           <textarea
+            [(ngModel)]="form.mensaje"
+            name="mensaje"
             rows="4"
+            required
             placeholder="Tu mensaje..."
             class="text-black w-full border border-gray-400 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#26B8DA] focus:outline-none placeholder-gray-400"
           ></textarea>
         </div>
 
-        <!-- <div class="flex items-center">
-          <label class="flex items-center cursor-pointer relative">
-            <input
-              type="checkbox"
-              checked
-              class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-blue-600 checked:border-blue-600"
-              id="check1"
-            />
-            <span
-              class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-3.5 w-3.5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-width="1"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </span>
-          </label>
-          <p for="privacy" class="ml-2 text-sm text-gray-600">
-            Aceptar los
-            <a href="#" class="text-blue-600 underline">Avisos de privacidad</a
-            >.
-          </p>
-        </div> -->
-
         <!-- Botón -->
         <div class="mt-8 lg:mt-10">
           <button
+            [disabled]="contactForm.invalid || cargando"
+            data-aos="fade-right"
             type="submit"
-            class="w-full cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full group relative inline-flex h-12 items-center justify-center overflow-hidden transition"
+            class="w-full cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full group relative inline-flex h-12 items-center justify-center overflow-hidden transition disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            <span>Enviar mensaje</span>
+            <span *ngIf="!cargando">Enviar mensaje</span>
+            <span *ngIf="cargando" class="animate-pulse">Enviando...</span>
             <div
               class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100"
             >
@@ -138,7 +126,10 @@
     </div>
 
     <!-- Columna derecha: Imagen -->
-    <div class="relative flex justify-center items-center h-full w-full">
+    <div
+      class="relative flex justify-center items-center h-full w-full"
+      data-aos="fade-left"
+    >
       <img
         src="/assets/img/abel/image.png"
         alt="Contact illustration"
@@ -147,3 +138,4 @@
     </div>
   </div>
 </section>
+<app-footer></app-footer>

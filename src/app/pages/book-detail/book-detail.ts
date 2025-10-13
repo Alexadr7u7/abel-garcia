@@ -5,10 +5,11 @@ import GLightbox from 'glightbox';
 import { Books } from '../home/sections/books/books';
 import { Contact } from '../contact/contact';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { Footer } from '../../layout/footer/footer';
 
 @Component({
   selector: 'app-book-detail',
-  imports: [CommonModule, RouterLink, Books, Contact],
+  imports: [CommonModule, RouterLink, Books, Contact, Footer],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })
@@ -56,8 +57,10 @@ export class BookDetail implements AfterViewInit, OnDestroy {
       titulo: 'Los Dones para edificación',
       autor: 'Abel Garcia',
       imagen: '/assets/img/edificacion.jpg',
-      description:
-        'Dios nos ha dado dones para servir y brindar el amor de Dios. De esta manera crecemos en esa armonía del Espíritu Santo, sirviendo con amor.',
+      description: `Dios nos ha brindado sus dones para servir a otros, con el ingrediente especial de su amor, el cual va acompañado de la fe.
+        La fe que rige la conducta de hombres y mujeres en su caminar por esta tierra es una fe que se genera al considerar la Palabra de Dios, al escucharla, meditarla y ponerla en práctica.
+        Esa fe permitió que varios personajes de las Escrituras tuvieran un lugar en la lista de quienes agradaron a Dios, y Dios no se avergonzó de llamarse Dios de ellos.
+        Esto y más conoceremos en estas páginas.`,
       alt: 'Libro 8',
     },
     {

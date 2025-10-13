@@ -1,0 +1,9 @@
+.book-detail-container {
+  position: relative; /* necesario para transform */
+}
+
+.book-detail-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}

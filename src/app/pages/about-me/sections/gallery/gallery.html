@@ -4,6 +4,7 @@
   <div class="flex flex-wrap justify-between gap-3 pb-8">
     <h2
       class="text-black text-3xl md:text-4xl font-medium leading-tight min-w-72 my-10"
+      data-aos="fade-right"
     >
       Relación amistad con Ministerios y Organizaciones
     </h2>
@@ -13,7 +14,11 @@
     role="list"
     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center"
   >
-    <li *ngFor="let img of imagenes" class="flex justify-center">
+    <li
+      *ngFor="let img of imagenes"
+      class="flex justify-center"
+      data-aos="fade-up"
+    >
       <img
         [src]="img"
         alt="Logo"
