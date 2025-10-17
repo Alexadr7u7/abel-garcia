@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { Carousel } from 'primeng/carousel';
 
@@ -10,8 +10,6 @@ import { Carousel } from 'primeng/carousel';
   styleUrl: './phrases.css',
 })
 export class Phrases {
-  @ViewChild('scrollRow1') scrollRow1!: ElementRef<HTMLDivElement>;
-  @ViewChild('scrollRow2') scrollRow2!: ElementRef<HTMLDivElement>;
   frases = [
     {
       texto:
@@ -209,35 +207,13 @@ export class Phrases {
   ];
   frasesFila1: any[] = [];
   frasesFila2: any[] = [];
-  pausedRows = { row1: false, row2: false };
   ngOnInit() {
+    // Dividimos las frases entre las dos filas
     const mitad = Math.ceil(this.frases.length / 2);
     this.frasesFila1 = this.frases.slice(0, mitad);
     this.frasesFila2 = this.frases.slice(mitad);
   }
-  pauseScroll(row: 'row1' | 'row2') {
-    this.pausedRows[row] = true;
-    this.getRow(row).style.animationPlayState = 'paused';
-  }
 
-  resumeScroll(row: 'row1' | 'row2') {
-    if (!this.pausedRows[row]) {
-      this.getRow(row).style.animationPlayState = 'running';
-    }
-  }
-
-  togglePause(row: 'row1' | 'row2') {
-    this.pausedRows[row] = !this.pausedRows[row];
-    this.getRow(row).style.animationPlayState = this.pausedRows[row]
-      ? 'paused'
-      : 'running';
-  }
-
-  private getRow(row: 'row1' | 'row2') {
-    return row === 'row1'
-      ? this.scrollRow1.nativeElement
-      : this.scrollRow2.nativeElement;
-  }
   responsiveOptions = [
     {
       breakpoint: '1024px',

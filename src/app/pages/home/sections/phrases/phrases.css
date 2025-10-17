@@ -18,12 +18,12 @@
 
 .animate-scroll {
   display: flex;
-  animation: scroll 80s linear infinite;
+  animation: scroll 25s linear infinite;
   will-change: transform;
 }
 
 .animate-scroll-reverse {
   display: flex;
-  animation: scroll-reverse 80s linear infinite;
+  animation: scroll-reverse 25s linear infinite;
   will-change: transform;
 }

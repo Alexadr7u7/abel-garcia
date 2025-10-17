@@ -6,22 +6,14 @@
     Algunas frases de Abel García
   </h2>
 </div>
-
-<div class="container my-10 select-none">
+<div class="container my-10">
   <div class="space-y-8">
     <!-- Fila 1 -->
-    <div
-      #scrollRow1
-      class="relative w-full overflow-hidden touch-pan-x"
-      (mousedown)="pauseScroll('row1')"
-      (mouseup)="resumeScroll('row1')"
-      (touchstart)="pauseScroll('row1')"
-      (touchend)="resumeScroll('row1')"
-    >
-      <div class="flex gap-6 animate-scroll" (click)="togglePause('row1')">
+    <div class="relative w-full overflow-hidden">
+      <div class="flex gap-6 animate-scroll">
         <div
           *ngFor="let frase of frasesFila1.concat(frasesFila1)"
-          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between active:scale-95"
+          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between"
         >
           <div>
             <div class="text-5xl text-gray-300 mb-2 leading-none">❞</div>
@@ -48,21 +40,11 @@
     </div>
 
     <!-- Fila 2 -->
-    <div
-      #scrollRow2
-      class="relative w-full overflow-hidden touch-pan-x"
-      (mousedown)="pauseScroll('row2')"
-      (mouseup)="resumeScroll('row2')"
-      (touchstart)="pauseScroll('row2')"
-      (touchend)="resumeScroll('row2')"
-    >
-      <div
-        class="flex gap-6 animate-scroll-reverse"
-        (click)="togglePause('row2')"
-      >
+    <div class="relative w-full overflow-hidden">
+      <div class="flex gap-6 animate-scroll-reverse">
         <div
           *ngFor="let frase of frasesFila2.concat(frasesFila2)"
-          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between active:scale-95"
+          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between"
         >
           <div>
             <div class="text-5xl text-gray-300 mb-2 leading-none">❞</div>
