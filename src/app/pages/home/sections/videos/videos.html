@@ -2,7 +2,7 @@
   <div class="flex justify-start">
     <h2
       class="inline-block text-3xl md:text-4xl font-medium mb-10 text-left text-black"
-      data-aos="fade-right"
+      data-aos="fade-up"
     >
       Conoce mis cortometrajes
     </h2>
@@ -12,12 +12,13 @@
     <div
       *ngFor="let corto of cortometrajes"
       class="flex flex-col"
-      data-aos="zoom-in"
+      data-aos="fade-up"
     >
       <!-- Video con GLightbox -->
       <a
         [href]="corto.url"
         class="glightbox relative block rounded overflow-hidden group"
+        autopla
         data-type="video"
         data-width="1280"
         data-height="720"

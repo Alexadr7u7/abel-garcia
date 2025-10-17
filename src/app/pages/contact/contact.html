@@ -6,7 +6,7 @@
     <div>
       <h2
         class="inline-block text-3xl md:text-4xl font-medium mb-10 text-left text-black"
-        data-aos="fade-right"
+        data-aos="fade-up"
       >
         Contacto
       </h2>
@@ -14,7 +14,7 @@
       <form
         #contactForm="ngForm"
         class="space-y-6"
-        data-aos="fade-right"
+        data-aos="fade-up"
         (ngSubmit)="enviarFormulario()"
       >
         <!-- Nombre -->
@@ -64,7 +64,7 @@
 
         <!-- Teléfono -->
         <div class="text-black">
-          <label class="block text-sm font-medium text-gray-700 mb-1"
+          <label class="block text-sm font-medium text-gray-700 mb-1 text-black"
             >Teléfono</label
           >
           <input
@@ -95,7 +95,7 @@
         <div class="mt-8 lg:mt-10">
           <button
             [disabled]="contactForm.invalid || cargando"
-            data-aos="fade-right"
+            data-aos="fade-up"
             type="submit"
             class="w-full cursor-pointer hover:bg-[#26B9DB] font-medium text-lg py-3 bg-[#15274D] text-white rounded-full group relative inline-flex h-12 items-center justify-center overflow-hidden transition disabled:bg-[#15274d8a] disabled:cursor-not-allowed"
           >
@@ -128,7 +128,7 @@
     <!-- Columna derecha: Imagen -->
     <div
       class="relative flex justify-center items-center h-full w-full"
-      data-aos="fade-left"
+      data-aos="fade-up"
     >
       <img
         src="/assets/img/abel/image.png"

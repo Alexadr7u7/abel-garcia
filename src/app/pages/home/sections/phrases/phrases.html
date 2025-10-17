@@ -1,31 +1,89 @@
-<div class="text-left my-10 max-w-7xl mx-auto px-2 md:px-6">
+<div class="text-center my-10 max-w-7xl mx-auto px-2 md:px-6 overflow-hidden">
   <h2
     class="inline-block text-3xl md:text-4xl font-medium mb-10 text-left text-black"
-    data-aos="fade-right"
+    data-aos="fade-up"
   >
-    Algunas frases de Abel Garcia
+    Algunas frases de Abel García
   </h2>
-  <div class="grid md:grid-cols-3 gap-6 text-left">
+</div>
+
+<div class="container my-10 select-none">
+  <div class="space-y-8">
+    <!-- Fila 1 -->
     <div
-      data-aos="fade-down"
-      *ngFor="let frase of frases"
-      class="bg-white p-4 rounded-xl shadow-md hover:-translate-y-1 hover:scale-110 transition duration-500 ease-in-out flex flex-col justify-between"
+      #scrollRow1
+      class="relative w-full overflow-hidden touch-pan-x"
+      (mousedown)="pauseScroll('row1')"
+      (mouseup)="resumeScroll('row1')"
+      (touchstart)="pauseScroll('row1')"
+      (touchend)="resumeScroll('row1')"
     >
-      <div>
-        <div class="text-5xl text-gray-400 MB-2">❞</div>
-        <p class="italic text-gray-700 mb-6">{{ frase.texto }}</p>
+      <div class="flex gap-6 animate-scroll" (click)="togglePause('row1')">
+        <div
+          *ngFor="let frase of frasesFila1.concat(frasesFila1)"
+          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between active:scale-95"
+        >
+          <div>
+            <div class="text-5xl text-gray-300 mb-2 leading-none">❞</div>
+            <p class="italic text-gray-700 mb-6 break-words whitespace-normal">
+              {{ frase.texto }}
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4 mt-auto">
+            <img
+              *ngIf="frase.imagen"
+              [src]="frase.imagen"
+              [alt]="frase.nombre"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+            <div>
+              <p class="font-semibold text-gray-900">
+                {{ frase.nombre }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="flex items-center gap-4 mt-auto">
-        <img
-          *ngIf="frase.imagen"
-          [src]="frase.imagen"
-          [alt]="frase.nombre"
-          class="w-10 h-10 rounded-full"
-        />
+    <!-- Fila 2 -->
+    <div
+      #scrollRow2
+      class="relative w-full overflow-hidden touch-pan-x"
+      (mousedown)="pauseScroll('row2')"
+      (mouseup)="resumeScroll('row2')"
+      (touchstart)="pauseScroll('row2')"
+      (touchend)="resumeScroll('row2')"
+    >
+      <div
+        class="flex gap-6 animate-scroll-reverse"
+        (click)="togglePause('row2')"
+      >
+        <div
+          *ngFor="let frase of frasesFila2.concat(frasesFila2)"
+          class="bg-white w-80 md:w-96 flex-shrink-0 px-5 py-6 rounded shadow-lg hover:-translate-y-1 transition-transform duration-500 ease-in-out flex flex-col justify-between active:scale-95"
+        >
+          <div>
+            <div class="text-5xl text-gray-300 mb-2 leading-none">❞</div>
+            <p class="italic text-gray-700 mb-6 break-words whitespace-normal">
+              {{ frase.texto }}
+            </p>
+          </div>
 
-        <div>
-          <p class="font-semibold text-gray-900">{{ frase.nombre }}</p>
+          <div class="flex items-center gap-4 mt-auto">
+            <img
+              *ngIf="frase.imagen"
+              [src]="frase.imagen"
+              [alt]="frase.nombre"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+            <div>
+              <p class="font-semibold text-gray-900">
+                {{ frase.nombre }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -36,6 +36,7 @@ export class Videos implements AfterViewInit {
       selector: '.glightbox',
       touchNavigation: true,
       loop: true,
+      autoplayVideos: true,
     });
   }
 }

@@ -10,6 +10,7 @@ import AOS from 'aos';
   imports: [RouterOutlet, Header, ScrollTop],
   templateUrl: './app.html',
   styleUrl: './app.css',
+
   animations: [routeAnimations],
 })
 export class App {

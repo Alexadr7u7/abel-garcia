@@ -3,9 +3,17 @@ import { Component, ViewChild } from '@angular/core';
 import { Carousel } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+
 @Component({
   selector: 'app-books',
-  imports: [CommonModule, Carousel, ButtonModule, RouterLink],
+  imports: [
+    CommonModule,
+    Carousel,
+    ButtonModule,
+    RouterLink,
+    AnimateOnScrollModule,
+  ],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })

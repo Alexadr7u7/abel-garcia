@@ -32,4 +32,5 @@ body.glightbox-open {
 .iti__country-list {
   scrollbar-width: thin;
   scrollbar-color: #000000 #f0f0f0;
+  color: black;
 }
